@@ -1,0 +1,52 @@
+{% extends 'crmaccounts/base.html' %}
+<html>
+<head>
+    <title>Products</title>
+</head>
+<body>
+{% block content %}
+    <style>
+    body{
+        background-color:lightblue;
+    }
+</style>
+    <h1 class="bg-success text-white text-center" style="margin-top: 5px;font-family: 'Malgun Gothic'">Products Details..</h1>
+
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table text-center">
+                        <thead>
+                        <tr class="bg-success text-center text-white">
+                            <th>Product Name</th>
+                            <th>Product Price</th>
+
+                            <th>Product Order Date</th>
+                            <th>Product Category </th>
+                            <th>Product Description </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for product in products %}
+                            <tr>
+                            <th>{{ product.name }}</th>
+                            <th>{{ product.price }}</th>
+                            <th>{{ product.created_date }}</th>
+                            <th>{{ product.category }}</th>
+                            <th>{{ product.description }}</th>
+                            </tr>
+
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+</body>
+</html>

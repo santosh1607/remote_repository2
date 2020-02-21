@@ -1,0 +1,56 @@
+{% extends 'crmaccounts/base.html' %}
+<html>
+<head>
+    <title>User Page</title>
+
+</head>
+<body>
+{% block content %}
+    <style>
+    body{
+        background-color: lightblue;
+    }
+    </style>
+    <center>
+    <h1 class="text_center" style="margin-bottom: 10px" {{ customers.name }} >details..</h1>
+    </center>
+    {% include 'crmaccounts/status.html' %}
+<div class="container" style="margin-top: 10px">
+  <div class="row">
+        <div class="col-md">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table_bordered text-center table-hover">
+                        <thead>
+                        <tr class="bg-success text-white text-center">
+                            <th>Customer Name</th>
+                            <th>Product Name</th>
+                            <th>Product Category</th>
+                            <th>Product Price</th>
+                            <th>Product Status</th>
+                            <th>Product Order Date</th>
+                            <th>Email Id</th>
+                        </tr>
+                        </thead>
+                        <tbody class="bg-secondary">
+                        {% for order in orders %}
+                            <tr>
+                            <td>{{ order.customer.name }}</td>
+                            <td>{{ order.product }}</td>
+                            <td>{{ order.product.category }}</td>
+                            <td>{{ order.product.price }}</td>
+                            <td>{{ order.status }}</td>
+                            <td>{{ order.created_date }}</td>
+                            <td>{{ order.customer.email }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>
